@@ -14,7 +14,7 @@
   background: linear-gradient(90deg, rgba(105, 0, 96, 1) 0%, rgba(179, 98, 189, 1) 100%);
   background-size: cover;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -42,6 +42,11 @@
   margin-bottom: 1rem;
 }
 
+.pic {
+  width: 20rem;
+  height: 30rem;
+}
+
 .section {
   margin-bottom: 1.5rem;
 }
@@ -58,6 +63,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.program-list-section {
+  color: var(--main);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.program-list-section p {
+  border-left: #790f09 solid 1px;
+  padding: 0.5rem;
+  margin: 0.5rem 4rem;
 }
 
 .icon {
