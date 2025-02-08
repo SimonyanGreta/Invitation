@@ -12,39 +12,47 @@
   margin: 0;
   font-family: 'Playfair Display', serif;
   background: linear-gradient(90deg, rgba(105, 0, 96, 1) 0%, rgba(179, 98, 189, 1) 100%);
+  /*linear-gradient(90deg, rgb(146 75 139) 0%, rgb(201 120 212) 100%);*/
   background-size: cover;
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--second);
+  box-sizing: border-box;
 }
 
 .container {
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: 1rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 2.5rem;
   text-align: center;
-}
-
-.title {
-  font-size: 3rem;
-  font-family: serif;
-  margin-bottom: 0.5rem;
+  max-width: 400px;
+  width: 100%;
 }
 
 .subtitle {
   font-size: 2rem;
   font-weight: 600;
   color: var(--second);
-  margin-bottom: 1rem;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.pic {
-  width: 20rem;
-  height: 30rem;
+.pic-container {
+  position: relative;
+  /*width: 100%;*/
+  /*height: 200px;*/
+  /*background-image: url("./assets/table.jpeg");*/
+  /*background-size: cover;*/
+  /*background-position: center;*/
+  /*border-radius: 0.5rem;*/
+}
+
+.greetings {
+  font-size: 1rem;
+  color: var(--second);
+  margin: 2rem 0;
 }
 
 .section {
@@ -58,29 +66,29 @@
 }
 
 .section-text {
-  font-size: 1.125rem;
+  font-size: 1rem;
   color: var(--second);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  text-align: center;
 }
 
-.program-list-section {
-  color: var(--main);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+.program-list {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+  color: var(--second);
 }
 
-.program-list-section p {
+.program-list p {
   border-left: #790f09 solid 1px;
   padding: 0.5rem;
   margin: 0.5rem 4rem;
 }
 
-.icon {
-  margin-right: 0.5rem;
-  color: var(--main);
+.place-image {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 0.5rem;
 }
 
 .rsvp-button {
@@ -96,11 +104,23 @@
 
 .rsvp-button:hover {
   background-color: var(--second);
+  color: var(--main);
 }
 
-.footer {
-  margin-top: 2.5rem;
-  font-size: 0.875rem;
-  font-style: italic;
-  color: var(--second);
+@media (max-width: 768px) {
+  .pic {
+    border-radius: 0;
+  }
+
+  .subtitle {
+    font-size: 1.5rem;
+  }
+
+  .section-title {
+    font-size: 1.2rem;
+  }
+
+  .section-text, .greetings {
+    font-size: 0.9rem;
+  }
 }

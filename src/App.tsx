@@ -7,18 +7,24 @@ const App: React.FC = () => {
   return (
     <div className="app-body">
       <div className="container">
+        <div className="pic-container">
+          <img className="place-image" src={table}/>
+          <h2 className="subtitle">Анна и Михаил</h2>
+        </div>
+        <p className="greetings">
+          Дорогие гости! <br/> В нашей жизни предстоят счастливые перемены!
+          Мы хотим, чтобы в этот день рядом с нами были самые близкие и дорогие для нас люди.
+          Будем рады разделить с вами чудесный праздник.
+        </p>
+
         <div className="section">
           <h3 className="section-title">Дата и время</h3>
+          <p className="section-text">15 мая 2025 года</p>
         </div>
-        <p className="section-text">
-          15 мая 2025 года, в 16:00
-        </p>
-        <h2 className="subtitle">Анна и Михаил</h2>
-        <img className="pic" src={table}/>
 
         <div className="section">
           <h3 className="section-title">Программа дня</h3>
-          <div className="program-list-section">
+          <div className="program-list">
             <p className="section-text">
               Сбор в 16:00
             </p>
@@ -36,10 +42,8 @@ const App: React.FC = () => {
 
         <div className="section">
           <h3 className="section-title">Место проведения</h3>
-          <p className="section-text">
-            Ресторан "Сказка", ул. Цветочная, 10
-          </p>
-          <img className="pic" src={place}/>
+          <p className="section-text">Ресторан "Сказка", ул. Цветочная, 10</p>
+          <img className="place-image" src={place} alt="Место проведения" />
         </div>
 
         <div className="section">
