@@ -1,25 +1,73 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import "./App.css";
-import table from './assets/table.jpeg';
+import ring from './assets/ring.png';
+import flowers from './assets/flowers.jpg';
 import place from './assets/place.jpeg';
 
 const App: React.FC = () => {
+  const targetDate = new Date("2025-05-15T00:00:00");
+
+  const calculateTimeLeft = () => {
+    const difference = targetDate - new Date();
+    if (difference <= 0) return null;
+
+    return {
+      days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+      hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+      minutes: Math.floor((difference / (1000 * 60)) % 60),
+      seconds: Math.floor((difference / 1000) % 60),
+    };
+  };
+
+  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+
+  useEffect(() => {
+    if (!timeLeft) return;
+
+    const timer = setInterval(() => {
+      setTimeLeft(calculateTimeLeft());
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, [timeLeft]);
+
   return (
     <div className="app-body">
       <div className="container">
+        {
+          !timeLeft ? <h1>Время вышло!</h1> : (<>
+            <h1>
+              Осталось:<br/>
+            </h1>
+            <h2>
+              {timeLeft.days} дней {timeLeft.hours} часов{" "}
+              {timeLeft.minutes} минут {timeLeft.seconds} секунд
+            </h2>
+          </>
+          )
+        }
         <div className="pic-container">
-          <img className="place-image" src={table}/>
-          <h2 className="subtitle">Анна и Михаил</h2>
+          <img className="place-image" style={{borderRadius: '50%'}} src={flowers}/>
+          <h2 className="subtitle">Грета и Игорь</h2>
         </div>
-        <p className="greetings">
-          Дорогие гости! <br/> В нашей жизни предстоят счастливые перемены!
-          Мы хотим, чтобы в этот день рядом с нами были самые близкие и дорогие для нас люди.
-          Будем рады разделить с вами чудесный праздник.
-        </p>
+
+
+        <div className="greetings">
+          <h3 className="section-title">Дорогие гости!</h3>
+          <p style={{ fontSize: '20px' }}>
+            В нашей жизни предстоят счастливые перемены!<br/>
+            Мы хотим, чтобы в этот день рядом с нами были самые близкие и дорогие для нас люди.
+            Будем рады разделить с вами чудесный праздник.
+          </p>
+        </div>
 
         <div className="section">
-          <h3 className="section-title">Дата и время</h3>
-          <p className="section-text">15 мая 2025 года</p>
+          <h4 className="section-title">15 мая 2025 года</h4>
+          {/*<p className="section-text">15 мая 2025 года</p>*/}
+        </div>
+
+        <div className="pic-container">
+          <img className="place-image" src={ring} style={{borderRadius: '55px 4px 55px 4px'}}/>
         </div>
 
         <div className="section">
@@ -43,7 +91,7 @@ const App: React.FC = () => {
         <div className="section">
           <h3 className="section-title">Место проведения</h3>
           <p className="section-text">Ресторан "Сказка", ул. Цветочная, 10</p>
-          <img className="place-image" src={place} alt="Место проведения" />
+          <img className="place-image" src={place} alt="Место проведения"/>
         </div>
 
         <div className="section">
